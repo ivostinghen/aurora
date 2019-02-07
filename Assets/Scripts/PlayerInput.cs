@@ -12,16 +12,15 @@ public class PlayerInput : MonoBehaviour
         playerMove = GetComponent<PlayerMove>();
         playerMove.enabled = true;
     }
+
     private void Update()
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            playerMove.Move();
+            if (playerMove.GetSpeed() > 0) playerMove.StopMove();
+            else playerMove.Move();
         }
-        else if(Input.GetButtonDown("Fire2"))
-        {
-            playerMove.SetSpeed(0);
-        }
+       
         
     }
 
