@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    private BesierCurve besierCurve;
+    private PlayerMove playerMove;
+
 
     private void Awake()
     {
-        besierCurve = GetComponent<BesierCurve>();
-        besierCurve.enabled = true;
+        playerMove = GetComponent<PlayerMove>();
+        playerMove.enabled = true;
     }
     private void Update()
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            besierCurve.RunBesier();
+            playerMove.Move();
         }
+        else if(Input.GetButtonDown("Fire2"))
+        {
+            playerMove.SetSpeed(0);
+        }
+        
     }
+
+
+    
 }
