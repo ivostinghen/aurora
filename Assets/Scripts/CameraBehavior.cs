@@ -13,7 +13,6 @@ public class CameraBehavior : MonoBehaviour {
         target = GameObject.Find("Character").transform;
     }
 
-   
     void LateUpdate () {
         pos = target.position;
         pos += offSet;
