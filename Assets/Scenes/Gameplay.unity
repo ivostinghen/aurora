@@ -210,7 +210,7 @@ Transform:
   m_Children:
   - {fileID: 1343424097}
   m_Father: {fileID: 747128943}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534669902
 GameObject:
@@ -624,12 +624,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6530910279937677989}
-  - {fileID: 1326563566}
-  - {fileID: 2009426483}
-  - {fileID: 1215235383}
   - {fileID: 918662997}
   - {fileID: 1747973647}
   - {fileID: 211072342}
+  - {fileID: 1326563566}
+  - {fileID: 2009426483}
+  - {fileID: 1215235383}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -797,7 +797,7 @@ Transform:
   m_Children:
   - {fileID: 1065216347}
   m_Father: {fileID: 747128943}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -84.024, y: 0, z: 0}
 --- !u!1 &1065216346
 GameObject:
@@ -905,9 +905,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01350676b7f9b8e4081df91d93045f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scenario: {fileID: 747128943}
+  padding: 0
   rockPrefab: {fileID: 6245261255949700559, guid: a82cd1a486b6b9448bb6b9a0acec3a23,
     type: 3}
-  scenario: {fileID: 747128943}
 --- !u!4 &1095504263
 Transform:
   m_ObjectHideFlags: 0
@@ -1261,7 +1262,7 @@ Transform:
   m_Children:
   - {fileID: 647831699}
   m_Father: {fileID: 747128943}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2009426483 stripped
 Transform:

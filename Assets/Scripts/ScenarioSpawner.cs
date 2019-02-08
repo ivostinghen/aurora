@@ -8,6 +8,8 @@ public class ScenarioSpawner : MonoBehaviour
     [SerializeField]
     private Transform scenario;
     private int length;
+    [SerializeField]
+    private float padding; //Space between rocks;
 
     //rocks
     private int [] predefinedRockSizes = new int[3] {4,6,8};
@@ -16,9 +18,9 @@ public class ScenarioSpawner : MonoBehaviour
     private GameObject rockPrefab;
     private GameObject[] rocks;
 
-    //towers
-    private GameObject towerPrefab;
-    private GameObject[] towers;
+    //castles
+    private GameObject castlePrefab;
+    private GameObject[] castles;
 
     
     private void Start()
@@ -29,14 +31,28 @@ public class ScenarioSpawner : MonoBehaviour
 
     private void SpawnScenario()
     {
+        SpawnRocks();
+        SpawnCastles();
+    }
+
+    private void SpawnRocks()
+    {
         rocks = new GameObject[length];
-        
-        for(int i=0;i<length;i++)
+        Vector3 pos = Vector3.zero;
+        Quaternion rot = rockPrefab.transform.rotation;
+
+        for (int i = 0; i < length; i++)
         {
-            rocks[i] = Instantiate(rockPrefab, transform.position, rockPrefab.transform.rotation ,scenario);
+            pos += Vector3.right * heights[i] * 5;
+            rocks[i] = Instantiate(rockPrefab, pos, rot, scenario);
             Vector3 scale = Vector3.one * heights[i];
             rocks[i].transform.localScale = scale;
         }
+    }
+
+    private void SpawnCastles()
+    {
+
     }
 
     private void InitializeHeights()
