@@ -7,7 +7,7 @@ public class ScenarioSpawner : MonoBehaviour
     //general
     [SerializeField]
     private Transform scenario;
-    private int length;
+    private int rocksAmount;
     [SerializeField]
     private float padding; //Space between rocks;
 
@@ -19,29 +19,31 @@ public class ScenarioSpawner : MonoBehaviour
     private GameObject[] rocks;
 
     //castles
+    [SerializeField]
     private GameObject castlePrefab;
     private GameObject[] castles;
+    private List<int> castlePositions;
+    private int castlesAmount;
 
-    
-    private void Start()
+    private void InitializeHeights()
     {
-        InitializeHeights();
-        SpawnScenario();
+        rocksAmount = Random.Range(3, 8);
+        heights = new int[rocksAmount];
+        for (int i = 0; i < rocksAmount; i++)
+        {
+            heights[i] = predefinedRockSizes[Random.Range(0, 3)];
+        }
     }
 
-    private void SpawnScenario()
-    {
-        SpawnRocks();
-        SpawnCastles();
-    }
+
 
     private void SpawnRocks()
     {
-        rocks = new GameObject[length];
+        rocks = new GameObject[rocksAmount];
         Vector3 pos = Vector3.zero;
         Quaternion rot = rockPrefab.transform.rotation;
 
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < rocksAmount; i++)
         {
             pos += Vector3.right * heights[i] * 5;
             rocks[i] = Instantiate(rockPrefab, pos, rot, scenario);
@@ -50,20 +52,44 @@ public class ScenarioSpawner : MonoBehaviour
         }
     }
 
+    private void GetCastles()
+    {
+        CalculateCastles calculateCastles = new CalculateCastles();
+        castlesAmount = calculateCastles.solution(heights);
+        castlePositions = calculateCastles.GetCastlePositions();
+    }
+
     private void SpawnCastles()
     {
+        GetCastles();
 
-    }
-
-    private void InitializeHeights()
-    {
-        length = Random.Range(3,8);
-        heights = new int[length];
-        for (int i = 0; i < length; i++)
+        castles = new GameObject[castlesAmount];
+        Quaternion rot = castlePrefab.transform.rotation;
+        for (int i = 0; i < castlesAmount; i++)
         {
-            heights[i] = predefinedRockSizes[Random.Range(0, 3)];
+            Vector3 pos = rocks[castlePositions[i]].transform.position;
+            pos.y += rocks[castlePositions[i]].transform.localScale.y * 5.2F;//("altura da rocha")
+            castles[i] = Instantiate(castlePrefab, pos, rot, scenario);
         }
     }
+
+    private void SpawnScenario()
+    {
+        SpawnRocks();
+        SpawnCastles();
+    }
+
+    private void Start()
+    {
+        InitializeHeights();
+        SpawnScenario();
+    }
+
+   
+
+   
+
+  
 
 
 }

@@ -17,16 +17,17 @@ public class CalculateCastles
     private int score;  //total de pontos 
     private List<int> castlePositions = new List<int>();
 
-    public List<int> GetCastlePositions() => this.castlePositions; 
-
+    ///UNITY REQUIRED CODE
+    public List<int> GetCastlePositions() => this.castlePositions;
+    
 
     public void Main()
     {
         //*Debug: Testes de input*
-        int[] teste = { 3, 2, 2, 3, 2, 2, 4 };
+        //[] teste = { 3, 2, 2, 3, 2, 2, 4 };
         //int[] teste  = {3};
         //int[] teste  = {1,2,2,3};
-        solution(teste);
+        //solution(teste);
     }
 
     public int solution(int[] A)
@@ -36,7 +37,17 @@ public class CalculateCastles
         {
             e = -2; d = -2;
             Esq(A); Meio(A); Dir(A);
-            if (e == -1 && d == 1 || e == 1 && d == -1 || e == 0 || d == 0) score += q - p + 1;
+            if (e == -1 && d == 1 || e == 1 && d == -1 || e == 0 || d == 0)
+            {
+                ///UNITY REQUIRED CODE
+                for (int i = p; i <= q; i++)
+                {
+                    castlePositions.Add(i);
+                    Console.Write(i.ToString());
+                }
+                ///
+                score += q - p + 1;
+            }
             q++;
             p = q;
         }
@@ -64,11 +75,6 @@ public class CalculateCastles
             if (A[i] != A[p]) return;
             q++;
         }
-    }
-
-    public void print(string s)
-    {
-        Console.WriteLine(s);
     }
 
 }

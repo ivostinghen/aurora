@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5919614276513620117}
   - component: {fileID: 5919614276513620202}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: CastlePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,16 +24,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5919614276513620203}
-  m_LocalRotation: {x: 0.005874541, y: 0.7164779, z: -0.004182402, w: 0.69757265}
-  m_LocalPosition: {x: 2.3010073, y: 7.600723, z: 19.984663}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 5919614277386537405}
   - {fileID: 5919614276782694967}
   - {fileID: 5919614276790633129}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.813, y: 91.533005, z: 0.148}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5919614276513620202
 Animator:
   serializedVersion: 3
@@ -111,7 +111,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5fd1e3637905d5e45a21db5a8be29f9b, type: 2}
-  - {fileID: 2100000, guid: 869cf221a0c031040a2b3068334a36e9, type: 2}
+  - {fileID: 2100000, guid: ebb56ebcd7cbb734d9e5cf3807d43de1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -218,7 +218,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 869cf221a0c031040a2b3068334a36e9, type: 2}
+  - {fileID: 2100000, guid: ebb56ebcd7cbb734d9e5cf3807d43de1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
