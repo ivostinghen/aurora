@@ -19,12 +19,13 @@ public class PlayerInput : MonoBehaviour
 
         if(Input.GetButtonDown("Fire1"))
         {
-            if (playerMove.GetSpeed() > 0) playerMove.StopMove();
-            else playerMove.Move();
+            //if (playerMove.GetSpeed() > 0) playerMove.StopMove();
+            /*else */playerMove.Move();
         }
         else if (Input.GetButtonDown("Fire2"))
         {
-            StartCoroutine(playerMove.Flip());
+            playerMove.StopMove();
+            //StartCoroutine(playerMove.Flip());
         }
 
 
