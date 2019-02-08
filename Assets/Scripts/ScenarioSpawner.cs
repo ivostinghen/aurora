@@ -12,7 +12,7 @@ public class ScenarioSpawner : MonoBehaviour
     private float padding; //Space between rocks;
 
     //rocks
-    private int [] predefinedRockSizes = new int[3] {4,6,8};
+    private int [] predefinedRockSizes = new int[4] {3,6,9,12};
     private int[] heights;
     [SerializeField]
     private GameObject rockPrefab;
@@ -31,25 +31,45 @@ public class ScenarioSpawner : MonoBehaviour
         heights = new int[rocksAmount];
         for (int i = 0; i < rocksAmount; i++)
         {
-            heights[i] = predefinedRockSizes[Random.Range(0, 3)];
+            heights[i] = predefinedRockSizes[Random.Range(0, 4)];
         }
     }
 
-
+    private float CalculateBoundDist(Collider col1, Collider col2)
+    {
+        Vector3 closestSurfacePoint1 = col1.ClosestPointOnBounds(col2.transform.position);
+        Vector3 closestSurfacePoint2 = col2.ClosestPointOnBounds(col2.transform.position);
+        return Vector3.Distance(closestSurfacePoint1, closestSurfacePoint2);
+    }
 
     private void SpawnRocks()
     {
         rocks = new GameObject[rocksAmount];
         Vector3 pos = Vector3.zero;
         Quaternion rot = rockPrefab.transform.rotation;
+        Vector3 margin = Vector3.zero;
         for (int i = 0; i < rocksAmount; i++)
         {
             pos += Vector3.right * heights[i] * 5;
             rocks[i] = Instantiate(rockPrefab, pos, rot, scenario);
+            if(i!=0)
+            {
+                Collider col1, col2;
+                col1 = rocks[i-1].GetComponent<Collider>();
+                col2 = rocks[i].GetComponent<Collider>();
+                float d = 0;
+                while (d < 1)
+                {
+                    d = CalculateBoundDist(col1,col2);
+                    rocks[i].transform.position += Vector3.right;
+                }
+            }
             Vector3 scale = Vector3.one * heights[i];
             rocks[i].transform.localScale = scale;
         }
     }
+   
+
 
     private void GetCastles()
     {
@@ -70,6 +90,19 @@ public class ScenarioSpawner : MonoBehaviour
             pos.y += r.localScale.y * 5.2F;//("altura da rocha")
             castles[i] = Instantiate(castlePrefab, pos, rot, scenario);
             castles[i].transform.parent = r;
+
+        }
+    }
+
+    public void ActivateScenario()
+    {
+        foreach (GameObject castle in castles)
+        {
+            castle.SetActive(true);
+        }
+        foreach (GameObject rock in rocks)
+        {
+            rock.SetActive(true);
         }
     }
 
@@ -77,6 +110,7 @@ public class ScenarioSpawner : MonoBehaviour
     {
         SpawnRocks();
         SpawnCastles();
+        ActivateScenario();
     }
 
     private void Start()

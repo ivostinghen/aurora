@@ -133,14 +133,14 @@ GameObject:
   - component: {fileID: 6245261255949700554}
   - component: {fileID: 6245261255949700557}
   - component: {fileID: 9216210325692964977}
-  - component: {fileID: 2039582670906069185}
+  - component: {fileID: 2138725187641334605}
   m_Layer: 0
   m_Name: RockPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6245261255949700555
 Transform:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 32fac1a2bfce4d84d8339fe642e157b0, type: 2}
-  - {fileID: 2100000, guid: ebb56ebcd7cbb734d9e5cf3807d43de1, type: 2}
+  - {fileID: 2100000, guid: 21e37cbe7bb6d9347aee43cbe503b767, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -215,7 +215,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.872986, y: 5.1237617, z: 5.64519}
   m_Center: {x: 0, y: 0, z: 2.8287318}
---- !u!114 &2039582670906069185
+--- !u!114 &2138725187641334605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,3 +227,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609e29095ffd546499ed7a9584d185ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerOn: {fileID: 2100000, guid: d3aefa32161375741bb8f45f9b266c88, type: 2}
+  powerOff: {fileID: 2100000, guid: 21e37cbe7bb6d9347aee43cbe503b767, type: 2}

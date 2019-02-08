@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
-    private void Start()
+    private void Awake()
     {
       transform.parent = null; //remove cloud
 

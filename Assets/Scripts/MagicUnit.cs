@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class MagicUnit : MonoBehaviour
 {
+
+    public Material powerOn;
+    public Material powerOff;
+
     private Renderer[] renderers;
     private bool power;
 
@@ -11,22 +15,35 @@ public class MagicUnit : MonoBehaviour
     public bool GetPower() => this.power;
 
 
-    private void Awake()
+    private void Start()
     {
-        renderers = GetComponents<Renderer>();
+        renderers = GetComponentsInChildren<Renderer>();
+        if (transform.childCount == 0) ActivateVisualMagic();
     }
 
-    public void ActivateMagic()
+    public void RunMagic()
     {
         Controller.instance.DecreasePowerAmount();
-        VisualMagic();
+        GetComponentInChildren<Animator>().enabled = true;
+        ActivateVisualMagic();
 
     }
 
-    public void VisualMagic()
+    public void ActivateVisualMagic()
     {
         foreach( Renderer r in renderers)
         {
+            Material[] materials = r.materials;
+            for(int i=0;i<materials.Length;i++)
+            {
+                if (materials[i].name.Equals("PowerOff (Instance)"))
+                {
+                    materials = r.materials;
+                    materials[materials.Length - 1] = powerOn;
+                    r.materials = materials;
+                }
+            }
+           
             
         }
     }

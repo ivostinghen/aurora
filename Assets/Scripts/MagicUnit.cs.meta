@@ -3,7 +3,9 @@ guid: 609e29095ffd546499ed7a9584d185ee
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - powerOn: {fileID: 2100000, guid: d3aefa32161375741bb8f45f9b266c88, type: 2}
+  - powerOff: {fileID: 2100000, guid: 21e37cbe7bb6d9347aee43cbe503b767, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

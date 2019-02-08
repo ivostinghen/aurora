@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5919614276513620117}
   - component: {fileID: 5919614276513620202}
-  - component: {fileID: 5919614276513620204}
   m_Layer: 0
   m_Name: CastlePrefab
   m_TagString: Untagged
@@ -43,9 +42,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5919614276513620203}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: fecd5261cbfb2904b87f9ec5bd605fe4, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ccf9d007277714e45ad8c70747e1020c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -54,18 +53,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5919614276513620204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5919614276513620203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609e29095ffd546499ed7a9584d185ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5919614276782694964
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +112,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5fd1e3637905d5e45a21db5a8be29f9b, type: 2}
-  - {fileID: 2100000, guid: ebb56ebcd7cbb734d9e5cf3807d43de1, type: 2}
+  - {fileID: 2100000, guid: 21e37cbe7bb6d9347aee43cbe503b767, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,7 +232,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ebb56ebcd7cbb734d9e5cf3807d43de1, type: 2}
+  - {fileID: 2100000, guid: 21e37cbe7bb6d9347aee43cbe503b767, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -293,7 +280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5919614277386537394}
   m_LocalRotation: {x: 0.70710677, y: -0.000000029802315, z: 0.00000004004686, w: 0.70710677}
-  m_LocalPosition: {x: -0, y: 9.22, z: -0}
+  m_LocalPosition: {x: 0, y: 9, z: 0}
   m_LocalScale: {x: 1.0000392, y: 1.0082352, z: 1.0082339}
   m_Children:
   - {fileID: 5919614277107100188}
