@@ -42,7 +42,6 @@ public class ScenarioSpawner : MonoBehaviour
         rocks = new GameObject[rocksAmount];
         Vector3 pos = Vector3.zero;
         Quaternion rot = rockPrefab.transform.rotation;
-
         for (int i = 0; i < rocksAmount; i++)
         {
             pos += Vector3.right * heights[i] * 5;
@@ -62,14 +61,15 @@ public class ScenarioSpawner : MonoBehaviour
     private void SpawnCastles()
     {
         GetCastles();
-
         castles = new GameObject[castlesAmount];
         Quaternion rot = castlePrefab.transform.rotation;
         for (int i = 0; i < castlesAmount; i++)
         {
-            Vector3 pos = rocks[castlePositions[i]].transform.position;
-            pos.y += rocks[castlePositions[i]].transform.localScale.y * 5.2F;//("altura da rocha")
+            Transform r = rocks[castlePositions[i]].transform;
+            Vector3 pos = r.position;
+            pos.y += r.localScale.y * 5.2F;//("altura da rocha")
             castles[i] = Instantiate(castlePrefab, pos, rot, scenario);
+            castles[i].transform.parent = r;
         }
     }
 
@@ -83,13 +83,15 @@ public class ScenarioSpawner : MonoBehaviour
     {
         InitializeHeights();
         SpawnScenario();
+        Controller.instance.SetPowerAmount(castlesAmount);
+
     }
 
-   
 
-   
 
-  
+
+
+
 
 
 }
