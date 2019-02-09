@@ -38,8 +38,9 @@ public class ScenarioSpawner : MonoBehaviour
     private float CalculateBoundDist(Collider col1, Collider col2)
     {
         Vector3 closestSurfacePoint1 = col1.ClosestPointOnBounds(col2.transform.position);
-        Vector3 closestSurfacePoint2 = col2.ClosestPointOnBounds(col2.transform.position);
-        return Vector3.Distance(closestSurfacePoint1, closestSurfacePoint2);
+        Vector3 closestSurfacePoint2 = col2.ClosestPointOnBounds(col1.transform.position);
+        Vector3 dif = (closestSurfacePoint2-closestSurfacePoint1);
+        return dif.x;
     }
 
     private void SpawnRocks()
@@ -50,22 +51,22 @@ public class ScenarioSpawner : MonoBehaviour
         Vector3 margin = Vector3.zero;
         for (int i = 0; i < rocksAmount; i++)
         {
-            pos += Vector3.right * heights[i] * 5;
             rocks[i] = Instantiate(rockPrefab, pos, rot, scenario);
+            Vector3 scale = Vector3.one * heights[i];
+            rocks[i].transform.localScale = scale;
             if(i!=0)
             {
                 Collider col1, col2;
                 col1 = rocks[i-1].GetComponent<Collider>();
                 col2 = rocks[i].GetComponent<Collider>();
                 float d = 0;
-                while (d < 1)
+                while (d < 30)
                 {
                     d = CalculateBoundDist(col1,col2);
                     rocks[i].transform.position += Vector3.right;
                 }
             }
-            Vector3 scale = Vector3.one * heights[i];
-            rocks[i].transform.localScale = scale;
+            
         }
     }
    
